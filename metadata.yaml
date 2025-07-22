@@ -1,0 +1,5 @@
+name: astrbot_plugin_plea_mercy
+author: qa296
+version: 1.0.0
+description: "当被禁言时，向管理员私聊求情。"
+repo: https://github.com/qa296/astrbot_plugin_plea_mercy
