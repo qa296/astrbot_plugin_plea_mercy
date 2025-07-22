@@ -1,0 +1,30 @@
+{
+  "plea_mode": {
+    "description": "选择求情模式",
+    "type": "string",
+    "hint": "选择当机器人被禁言时，是发送固定的消息还是调用LLM生成消息。",
+    "default": "fixed",
+    "options": [
+      "fixed",
+      "llm"
+    ]
+  },
+  "fixed_plea_message": {
+    "description": "固定模式下的求情文案",
+    "type": "text",
+    "hint": "支持变量：{admin_name} (管理员昵称), {group_name} (群名称), {duration_str} (禁言时长)",
+    "default": "呜呜呜，{admin_name}大人，我做错了什么吗？我被您在群【{group_name}】里禁言了 {duration_str}，可以原谅我吗？"
+  },
+  "llm_system_prompt": {
+    "description": "LLM模式下的系统提示词(System Prompt)",
+    "type": "text",
+    "hint": "这是给大语言模型的指示，告诉它应该扮演什么角色、以什么语气来生成求情内容。",
+    "default": "你在一个群被群管理员禁言了。请根据下面提供的聊天记录，以一种非常委屈、可怜、且略带俏皮的语气，向禁言你的管理员写一段求情的话，请求他解除禁言。聊天记录中，'assistant'角色的发言是你自己的发言。"
+  },
+  "llm_history_count": {
+    "description": "LLM模式引用的历史消息数量",
+    "type": "int",
+    "hint": "设置在调用LLM时，引用多少条最近的群聊消息作为上下文。",
+    "default": 10
+  }
+}
