@@ -1,6 +1,6 @@
 # 求情插件 (Plea for Mercy)
 
-> 作者：qa296
+> 作者：qa296  
 > 仓库： [GitHub – astrbot_plugin_plea_mercy](https://github.com/qa296/astrbot_plugin_plea_mercy)
 
 当 AstrBot 在群聊里被管理员禁言时，它会第一时间私聊那位管理员，或撒娇、或委屈、或俏皮地“求个情”，争取秒速解除禁言。
@@ -20,10 +20,11 @@
 
 ## 更新日志
 
-> v1.0.0 首个版本发布  
+v1.0.0 首个版本发布  
 > • 支持 aiocqhttp 全系列适配器（go-cqhttp、NapCat、Lagrange.Core 等）  
 > • 支持固定与 LLM 双模式  
 > • 支持变量注入群名、管理员昵称、禁言时长
+> • 支持识别全体禁言
 
 ---
 
@@ -51,10 +52,12 @@ cp -r astrbot_plugin_plea_mercy  astrbot/data/plugins/
 | `plea_mode` | 选择 | `fixed` | 求情模式：fixed（固定文案） / llm（大模型智能文案） |
 | `fixed_plea_message` | 文本 | 见下 | 固定文案，支持变量：<br>`{admin_name}` 管理员昵称<br>`{group_name}` 群名<br>`{duration_str}` 格式化禁言时长 |
 | `llm_system_prompt` | 文本 | 见下 | LLM 系统提示词，设定 Bot 的“人设” |
-| `llm_history_count` | 整数 | `20` | 调用 LLM 时参考的最近聊天条数 |
+| `llm_history_count` | 整数 | `10` | 调用 LLM 时参考的最近聊天条数 |
 
 > 默认固定文案  
-> 「呜呜呜，{admin_name} 大人，我做错了什么吗？我在群【{group_name}】被您禁言了 {duration_str}，可以原谅我吗？」
+> 「呜呜呜，{admin_name} 大人，我做错了什么吗？我在群【{group_name}】被您禁言了 {duration_str}，可以原谅我吗？」  
+> 默认LLM提示词  
+> 你在一个群被群管理员禁言了。请根据下面提供的聊天记录，以一种非常委屈、可怜、且略带俏皮的语气，向禁言你的管理员写一段求情的话，请求他解除禁言。聊天记录中，'assistant'角色的发言是你自己的发言。
 
 ---
 
@@ -66,5 +69,5 @@ cp -r astrbot_plugin_plea_mercy  astrbot/data/plugins/
 
 ---
 
-> 觉得有趣？记得在仓库点个 ⭐！  
-> 任何 Bug 或建议，欢迎到 [GitHub Issues](https://github.com/qa296/astrbot_plugin_plea_mercy/issues) 留言讨论。
+觉得有趣？记得在点个 ⭐！  
+任何 Bug 或建议，欢迎到 [GitHub Issues](https://github.com/qa296/astrbot_plugin_plea_mercy/issues) 留言讨论。
